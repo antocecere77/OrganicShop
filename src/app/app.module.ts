@@ -14,24 +14,23 @@ import { environment } from '../environments/environment';
 import { AdminModule } from './admin/admin.module';
 import { AdminAuthGuard } from './admin/services/admin-auth-guard.service';
 import { AppComponent } from './app.component';
-import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
+import { BsNavbarComponent } from './core/components/bs-navbar/bs-navbar.component';
+import { HomeComponent } from './core/components/home/home.component';
+import { LoginComponent } from './core/components/login/login.component';
 import { ProductsComponent } from './shopping/components/products/products.component';
 import { ShoppingModule } from './shopping/shopping.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    BsNavbarComponent,
-    HomeComponent, 
-    LoginComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     SharedModule,
     AdminModule,
     ShoppingModule,
+    CoreModule,
     FormsModule,
     CustomFormsModule,
     DataTableModule,
@@ -39,9 +38,9 @@ import { ShoppingModule } from './shopping/shopping.module';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     NgbModule.forRoot(),
-    RouterModule.forRoot([
+    RouterModule.forRoot([  
       { path: '', component: ProductsComponent},     
-      { path: 'login', component: LoginComponent}      
+      { path: 'login', component: LoginComponent}        
     ])
   ],
   providers: [
